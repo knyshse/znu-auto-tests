@@ -2,10 +2,18 @@ const chai = require('chai');
 const expect = chai.expect;
 const MyMatrix = require('../src/matrix');
 
-describe('MyMatrix', function() {
-    
-    describe('zeros', function() {
-        it('should create a matrix filled with zeros', function() {
+describe('MyMatrix tests', function () {
+    describe('creation', function () {
+        it('MyMatrix.data property should be correct after creation', function () {
+            const arr = [[1, 2, 3], [0, 9, 8], [11, 12, 13]];
+            const matrix = new MyMatrix(arr);
+
+            expect(matrix.data).to.equal(arr);
+        });
+    });
+
+    describe('zeros', function () {
+        it('should create a matrix filled with zeros', function () {
             const result = MyMatrix.zeros(3, 3);
             expect(result).to.be.an('array');
             expect(result.length).to.equal(3);
@@ -13,7 +21,7 @@ describe('MyMatrix', function() {
             expect(result.every(row => row.every(el => el === 0))).to.be.true;
         });
 
-        it('should create a matrix filled with zeros with the specified shape', function() {
+        it('should create a matrix filled with zeros with the specified shape', function () {
             const result = MyMatrix.zeros(4, 2);
             expect(result).to.be.an('array');
             expect(result.length).to.equal(4);
@@ -23,8 +31,8 @@ describe('MyMatrix', function() {
 
     });
 
-    describe('ones', function() {
-        it('should create a matrix filled with ones', function() {
+    describe('ones', function () {
+        it('should create a matrix filled with ones', function () {
             const result = MyMatrix.ones(2, 2);
             expect(result).to.be.an('array');
             expect(result.length).to.equal(2);
@@ -32,7 +40,7 @@ describe('MyMatrix', function() {
             expect(result.every(row => row.every(el => el === 1))).to.be.true;
         });
 
-        it('should create a matrix filled with ones with the specified shape', function() {
+        it('should create a matrix filled with ones with the specified shape', function () {
             const result = MyMatrix.ones(6, 7);
             expect(result).to.be.an('array');
             expect(result.length).to.equal(6);
@@ -40,4 +48,22 @@ describe('MyMatrix', function() {
             expect(result.every(row => row.every(el => el === 1))).to.be.true;
         });
     });
+
+    describe('areEqual', function () {
+        it('two matrixы must be identical', function () {
+            const matrixA = new MyMatrix([[1, 2], [3, 4]]);
+            const matrixB = new MyMatrix([[1, 2], [3, 4]]);
+
+            expect(MyMatrix.areEqual(matrixA, matrixB)).to.be.true;
+        });
+
+        it('two matrix must be NOT identical', function () {
+            const matrixA = new MyMatrix([[1, 2], [3, 5]]);
+            const matrixB = new MyMatrix([[1, 2], [3, 4]]);
+
+            expect(MyMatrix.areEqual(matrixA, matrixB)).to.be.false;
+        });
+    });
+
+
 });

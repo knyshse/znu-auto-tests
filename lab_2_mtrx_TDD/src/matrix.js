@@ -15,7 +15,7 @@ class MyMatrix {
 
     static identity(n) {
         return Mtrx.eye(n);
-    }    
+    }
 }
 
 module.exports = MyMatrix;
