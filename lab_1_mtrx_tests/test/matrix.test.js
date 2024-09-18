@@ -1,5 +1,7 @@
 const { expect } = require('chai');
 const Mtrx = require('Mtrx');
+
+
 describe('Matrix addition', function() {
   it('should return the correct result for matrix addition', function() {
     const matrix1 = new Mtrx([[1, 2], [3, 4]]);

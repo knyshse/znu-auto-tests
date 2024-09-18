@@ -50,20 +50,14 @@ describe('MyMatrix tests', function () {
     });
 
     describe('areEqual', function () {
-        it('two matrixы must be identical', function () {
+        it('two matrixs must be identical', function () {
             const matrixA = new MyMatrix([[1, 2], [3, 4]]);
             const matrixB = new MyMatrix([[1, 2], [3, 4]]);
+            const matrixC = new MyMatrix([[1, 3], [3, 5]]);
 
             expect(MyMatrix.areEqual(matrixA, matrixB)).to.be.true;
-        });
-
-        it('two matrix must be NOT identical', function () {
-            const matrixA = new MyMatrix([[1, 2], [3, 5]]);
-            const matrixB = new MyMatrix([[1, 2], [3, 4]]);
-
-            expect(MyMatrix.areEqual(matrixA, matrixB)).to.be.false;
+            expect(MyMatrix.areEqual(matrixA, matrixC)).to.be.false;
         });
     });
-
 
 });
