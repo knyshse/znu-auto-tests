@@ -1,6 +1,8 @@
 lab_1_mtrx_tests/node_modules
 lab_2_mtrx_TDD/node_modules
 lab_3_mtrx_TestDoubles/node_modules
+lab_4_Cypress_tests/node_modules
 
 docker-compose.yml
+Dockerfile
 Makefile
